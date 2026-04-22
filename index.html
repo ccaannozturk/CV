@@ -154,6 +154,41 @@
         /* === ANIMATIONS === */
         .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .fade-up.in { opacity: 1; transform: translateY(0); }
+        /* === PRINT STYLESHEET === */
+@media print {
+    /* 1. Hide web-only interactive elements */
+    header, footer, button, .timeline-line, .timeline-node {
+        display: none !important;
+    }
+
+    /* 2. Reset backgrounds and text to save ink and look like a CV */
+    body, #home, section, .exp-card, .skill-col {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* 3. Reformat the layout for A4/Letter paper */
+    main { padding-top: 0 !important; }
+    #home { min-height: auto !important; padding: 2rem 0 !important; }
+    .container { max-width: 100% !important; padding: 0 !important; }
+    
+    /* 4. Ensure elements stack naturally instead of using web grids */
+    .hero-grid { display: none !important; }
+    .timeline-row, .skills-grid { 
+        display: block !important; 
+        margin-bottom: 2rem !important; 
+    }
+    
+    /* 5. Force page breaks so sections don't get cut in half */
+    section { page-break-inside: avoid; }
+    .exp-card-wrapper { page-break-inside: avoid; margin-bottom: 1.5rem; padding: 0 !important; }
+    
+    /* 6. Expand UI elements */
+    .exp-card::after { display: none !important; } /* remove hover line */
+    p[aria-hidden="true"] { display: none !important; } /* hide "View details ->" */
+}
     </style>
 </head>
 <body>
