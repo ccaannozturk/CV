@@ -3,345 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Can Öztürk | Product Financial Controller</title>
+    <title>Can Öztürk | Financial Controller</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Custom Styles */
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #F8F9FA; 
-            color: #34495E; 
-        }
-        h1, h2, h3, .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .bg-navy { background-color: #0A2342; }
-        .text-teal { color: #2CA58D; }
-        .bg-teal { background-color: #2CA58D; }
-        .border-teal { border-color: #2CA58D; }
-        .text-light-grey { color: #F8F9FA; }
-        .text-dark-grey { color: #6C757D; }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 1.25rem;
-            height: 1.25rem;
-            border-radius: 50%;
-            background-color: #2CA58D;
-            border: 4px solid #F8F9FA;
-            left: -0.625rem;
-            top: 0;
-            z-index: 10;
+        body { font-family: 'Outfit', sans-serif; background-color: #F2F5F7; color: #1a2332; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garant', serif; }
+
+        .cert-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(44,165,141,0.12); border: 1px solid rgba(44,165,141,0.3);
+            color: #2CA58D; padding: 4px 13px; border-radius: 20px;
+            font-size: 0.75rem; font-family: 'Outfit', sans-serif; font-weight: 500;
         }
 
-        .modal { transition: opacity 0.3s ease; }
-        .modal-content { transition: transform 0.3s ease; }
-        
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(44,165,141,0.04) 0px, rgba(44,165,141,0.04) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(0deg, rgba(44,165,141,0.04) 0px, rgba(44,165,141,0.04) 1px, transparent 1px, transparent 60px);
         }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .timeline-node {
+            position: absolute; left: 50%; top: 26px;
+            transform: translateX(-50%);
+            width: 13px; height: 13px; border-radius: 50%;
+            background: #2CA58D; border: 3px solid #F2F5F7;
+            box-shadow: 0 0 0 2px #2CA58D; z-index: 10;
         }
+        .timeline-node.secondary {
+            background: #F2F5F7; border-color: #2CA58D;
+            box-shadow: 0 0 0 2px rgba(44,165,141,0.4);
+        }
+
+        .exp-card {
+            background: white; border-radius: 14px; padding: 1.4rem 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            cursor: pointer; transition: all 0.25s ease; position: relative; overflow: hidden;
+        }
+        .exp-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: #2CA58D; transform: scaleX(0); transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+        .exp-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .exp-card:hover::after { transform: scaleX(1); }
+
+        .company-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8D99A8; }
+
+        .promo-badge {
+            display: inline-flex; align-items: center;
+            background: #FFF6E0; color: #92600A;
+            font-size: 0.65rem; font-weight: 700; padding: 2px 7px;
+            border-radius: 4px; letter-spacing: 0.04em; text-transform: uppercase;
+            font-family: 'Outfit', sans-serif; margin-left: 6px; vertical-align: middle;
+        }
+
+        .skill-chip {
+            display: inline-block; background: #EDF7F5;
+            color: #1a6b58; border: 1px solid rgba(44,165,141,0.18);
+            padding: 4px 11px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 400; font-family: 'Outfit', sans-serif;
+        }
+
+        .achievement-bar {
+            background: linear-gradient(135deg, #EDF7F5, #E4F5F1);
+            border-left: 3px solid #2CA58D;
+            padding: 9px 13px; border-radius: 0 8px 8px 0;
+            font-size: 0.84rem; color: #0d4a3a; font-weight: 500;
+            margin: 0 0 1rem; font-family: 'Outfit', sans-serif;
+            line-height: 1.5;
+        }
+
+        .modal-bullet {
+            display: flex; gap: 10px; align-items: flex-start;
+            font-size: 0.875rem; color: #3a4555; line-height: 1.65;
+        }
+        .modal-bullet span.dot { color: #2CA58D; margin-top: 3px; flex-shrink: 0; font-size: 0.75rem; }
+
+        .section-title {
+            font-family: 'Cormorant Garant', serif;
+            font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 700;
+            color: #0A2342; text-align: center; margin-bottom: 3rem;
+        }
+        .section-title span { color: #2CA58D; }
+
+        .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.in { opacity: 1; transform: translateY(0); }
+
+        .lang-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(44,165,141,0.1); }
+        .lang-row:last-child { border-bottom: none; }
+        .lang-badge { font-size: 0.7rem; font-weight: 600; color: #2CA58D; background: rgba(44,165,141,0.1); padding: 2px 9px; border-radius: 10px; }
+
+        .cert-row { display: flex; align-items: center; gap: 9px; padding: 6px 0; }
+        .cert-dot { width: 8px; height: 8px; border-radius: 50%; background: #2CA58D; flex-shrink: 0; }
+        .cert-dot.outline { background: white; border: 2px solid #2CA58D; }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-navy text-light-grey p-4 fixed w-full top-0 z-50 shadow-lg">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="text-xl font-montserrat font-bold">Can Öztürk</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#experience" class="hover:text-teal transition-colors duration-300">Experience</a>
-                <a href="#skills" class="hover:text-teal transition-colors duration-300">Skills</a>
-                <a href="#education" class="hover:text-teal transition-colors duration-300">Education</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden mt-4">
-            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-teal">Experience</a>
-            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-teal">Skills</a>
-            <a href="#education" class="block py-2 px-4 text-sm hover:bg-teal">Education</a>
+<header style="background:#0A2342; position:fixed; top:0; width:100%; z-index:50; box-shadow:0 1px 0 rgba(255,255,255,0.06);">
+    <nav style="max-width:1100px; margin:0 auto; padding:0 1.5rem; height:60px; display:flex; justify-content:space-between; align-items:center;">
+        <a href="#home" style="font-family:'Cormorant Garant',serif; font-size:1.4rem; font-weight:700; color:white; text-decoration:none; letter-spacing:0.02em;">Can Öztürk</a>
+        <div class="hidden md:flex" style="gap:2.5rem;">
+            <a href="#experience" style="color:rgba(255,255,255,0.6); font-size:0.82rem; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Experience</a>
+            <a href="#skills" style="color:rgba(255,255,255,0.6); font-size:0.82rem; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Skills</a>
+            <a href="#education" style="color:rgba(255,255,255,0.6); font-size:0.82rem; text-decoration:none; letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Education</a>
         </div>
-    </header>
+        <button id="mob-btn" class="md:hidden" style="background:none; border:none; cursor:pointer; color:white;">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <div id="mob-menu" style="display:none; background:#0A2342; padding:0.5rem 0 1rem; border-top:1px solid rgba(255,255,255,0.06);">
+        <a href="#experience" style="display:block; padding:0.6rem 1.5rem; color:rgba(255,255,255,0.65); font-size:0.85rem; text-decoration:none;">Experience</a>
+        <a href="#skills" style="display:block; padding:0.6rem 1.5rem; color:rgba(255,255,255,0.65); font-size:0.85rem; text-decoration:none;">Skills</a>
+        <a href="#education" style="display:block; padding:0.6rem 1.5rem; color:rgba(255,255,255,0.65); font-size:0.85rem; text-decoration:none;">Education</a>
+    </div>
+</header>
 
-    <main class="pt-16">
-        <section id="home" class="min-h-screen flex items-center bg-navy text-light-grey">
-            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                    <h1 class="text-5xl md:text-6xl font-bold font-montserrat mb-4">Can Öztürk</h1>
-                    <h2 class="text-2xl md:text-3xl text-teal font-montserrat mb-6">Product Financial Controller</h2>
-                    <p class="text-lg mb-8 max-w-xl mx-auto md:mx-0">
-                        Innovative Financial Controller based in Amstelveen, bridging the gap between finance, technology, and product development. Expert in rapid technological adaptation, AI collaboration, and process automation to deliver deep insights and drive operational excellence.
-                    </p>
-                    <div class="flex justify-center md:justify-start space-x-6">
-                        <a href="mailto:canztrk@outlook.com.tr" class="hover:text-teal transition-colors duration-300" aria-label="Email">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        </a>
-                        <a href="tel:+31625128602" class="hover:text-teal transition-colors duration-300" aria-label="Phone">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        </a>
-                        <a href="https://github.com/ccaannozturk" target="_blank" rel="noopener noreferrer" class="hover:text-teal transition-colors duration-300" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/canztrk/" target="_blank" rel="noopener noreferrer" class="hover:text-teal transition-colors duration-300" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 5.07h-2.44v8.26h2.44V8.07zM8.27 6.8a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8zm5.23 1.27h-2.44v1.2h.03c.35-.6 1.2-1.23 2.4-1.23 2.58 0 3.05 1.7 3.05 3.9V16.33h-2.44v-4.57c0-1.09-.02-2.48-1.51-2.48-1.51 0-1.74 1.18-1.74 2.4v4.65z"/></svg>
-                        </a>
-                    </div>
+<main style="padding-top:60px;">
+
+    <!-- HERO -->
+    <section id="home" style="background:#0A2342; min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden;">
+        <div class="hero-grid"></div>
+        <div style="position:absolute; right:8%; bottom:-80px; width:420px; height:420px; border-radius:50%; border:1px solid rgba(44,165,141,0.07); pointer-events:none;"></div>
+        <div style="position:absolute; right:11%; bottom:-50px; width:260px; height:260px; border-radius:50%; border:1px solid rgba(44,165,141,0.05); pointer-events:none;"></div>
+        <div style="max-width:1100px; margin:0 auto; padding:4rem 1.5rem; display:flex; align-items:center; gap:4rem; flex-wrap:wrap; position:relative; z-index:2; width:100%;">
+            <div style="flex:1; min-width:280px;">
+                <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#2CA58D; margin-bottom:1rem;">Financial Controller · Fintech & Banking Products</p>
+                <h1 style="font-family:'Cormorant Garant',serif; font-size:clamp(3.2rem,7vw,5.2rem); font-weight:700; color:white; line-height:0.95; margin-bottom:1.5rem;">Can<br>Öztürk</h1>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:1.5rem;">
+                    <span class="cert-badge">Turkish CPA</span>
+                    <span class="cert-badge">ACCA Finalist</span>
+                    <span class="cert-badge">Amsterdam</span>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <img src="https://placehold.co/400x400/2CA58D/F8F9FA?text=CO" alt="Can Öztürk" class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-teal shadow-xl">
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="py-20 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Work Experience</h2>
-                <div class="relative max-w-2xl mx-auto">
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
-                    <div class="space-y-12">
-                        
-                        <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-1">
-                            <div class="md:flex items-center">
-                                <div class="md:w-1/2 md:pr-8">
-                                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Dec 2024 - Present</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Financial Controller</h3>
-                                        <p class="text-dark-grey">Adyen</p>
-                                        <p class="text-sm mt-2">Serve as the key Financial Controller for the Banking Platform, taking ownership of accounting, reporting, and financial control...</p>
-                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
-                                    </div>
-                                </div>
-                                <div class="md:w-1/2 md:pl-8"></div>
-                            </div>
-                        </div>
-
-                        <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-2">
-                            <div class="md:flex items-center flex-row-reverse">
-                                <div class="md:w-1/2 md:pl-8">
-                                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Nov 2020 - Dec 2024</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Group Reporting Analyst</h3>
-                                        <p class="text-dark-grey">Vivo Energy</p>
-                                        <p class="text-sm mt-2">Performed financial analysis to support the consolidation of data from over 20 countries.</p>
-                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
-                                    </div>
-                                </div>
-                                <div class="md:w-1/2 md:pr-8"></div>
-                            </div>
-                        </div>
-
-                        <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-3">
-                            <div class="md:flex items-center">
-                                <div class="md:w-1/2 md:pr-8">
-                                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Sep 2018 - Nov 2020</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Audit Supervisor & Senior Auditor</h3>
-                                        <p class="text-dark-grey">KPMG Netherlands</p>
-                                        <p class="text-sm mt-2">Supervised a team of auditors and oversaw their work to ensure quality and timely completion of financial audits.</p>
-                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
-                                    </div>
-                                </div>
-                                <div class="md:w-1/2 md:pl-8"></div>
-                            </div>
-                        </div>
-
-                        <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-4">
-                            <div class="md:flex items-center flex-row-reverse">
-                                <div class="md:w-1/2 md:pl-8">
-                                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Oct 2015 - Aug 2018</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Senior External Auditor & Audit Assistant</h3>
-                                        <p class="text-dark-grey">EY</p>
-                                        <p class="text-sm mt-2">Led external audits process of four biggest companies in Turkey in manufacturing, sports and consumer products sectors.</p>
-                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
-                                    </div>
-                                </div>
-                                <div class="md:w-1/2 md:pr-8"></div>
-                            </div>
-                        </div>
-
-                    </div>
+                <p style="font-size:0.95rem; line-height:1.85; color:rgba(255,255,255,0.65); max-width:530px; margin-bottom:2rem;">
+                    Financial controller with 10 years across Big 4 audit (EY, KPMG), multi-country group reporting, and fintech product finance. Consistent track record of building automation solutions at every employer — from VBA audit tools at EY and KPMG, to SAP-level budgeting pipelines at Vivo Energy, to Python-based close automation at Adyen.
+                </p>
+                <div style="display:flex; gap:1.25rem; align-items:center;">
+                    <a href="mailto:canztrk@outlook.com.tr" style="color:rgba(255,255,255,0.4); transition:color 0.2s; text-decoration:none;" aria-label="Email" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </a>
+                    <a href="tel:+31625128602" style="color:rgba(255,255,255,0.4); transition:color 0.2s; text-decoration:none;" aria-label="Phone" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </a>
+                    <a href="https://github.com/ccaannozturk" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.4); transition:color 0.2s; text-decoration:none;" aria-label="GitHub" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/canztrk/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.4); transition:color 0.2s; text-decoration:none;" aria-label="LinkedIn" onmouseover="this.style.color='#2CA58D'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 5.07h-2.44v8.26h2.44V8.07zM8.27 6.8a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8zm5.23 1.27h-2.44v1.2h.03c.35-.6 1.2-1.23 2.4-1.23 2.58 0 3.05 1.7 3.05 3.9V16.33h-2.44v-4.57c0-1.09-.02-2.48-1.51-2.48-1.51 0-1.74 1.18-1.74 2.4v4.65z"/></svg>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <section id="skills" class="py-20 bg-white fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Technical & Core Skills</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Finance & Data</h3>
-                        <div class="space-y-4">
-                            <p>Advanced Excel & Financial Modeling</p>
-                            <p>Complex Data Analytics & Deep Dive Insights</p>
-                            <p>IFRS, TR GAAP & Compliance</p>
-                            <p>Financial Reporting & Consolidation</p>
-                        </div>
+            <div style="flex-shrink:0;">
+                <div style="position:relative; width:240px; height:240px;">
+                    <div style="width:240px; height:240px; border-radius:50%; background:rgba(44,165,141,0.08); border:1px solid rgba(44,165,141,0.2); display:flex; align-items:center; justify-content:center;">
+                        <img src="https://placehold.co/220x220/0A2342/2CA58D?text=CÖ" alt="Can Öztürk" style="width:220px; height:220px; border-radius:50%; object-fit:cover; border:2px solid rgba(44,165,141,0.35);">
                     </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Tech & Automation</h3>
-                        <div class="space-y-4">
-                            <p><strong>AI Integration:</strong> Highly proficient in collaborating with AI tools to boost efficiency.</p>
-                            <p><strong>Agent Creation:</strong> Building custom AI Agents (like Gemini Gems) to segment workloads and optimize output quality.</p>
-                            <p><strong>Vibecoding:</strong> Fast, adaptive basic development & prototyping.</p>
-                            <p><strong>Process Automation:</strong> Transforming manual workflows into automated, high-quality pipelines.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Systems</h3>
-                        <div class="space-y-4">
-                            <p>Rapid technological adaptation to any software or app.</p>
-                            <p>HFM (Hyperion Financial Management)</p>
-                            <p>SAP & SGR</p>
-                            <p>VBA Programming</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="py-20 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Education</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center md:text-left">
-                    <div>
-                        <h4 class="text-xl font-bold">Bachelor's degree, Economics</h4>
-                        <p class="text-dark-grey font-semibold mt-1">Istanbul University</p>
-                        <p class="text-sm text-gray-500 mt-1">2010 - 2014</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold">Economics (Erasmus)</h4>
-                        <p class="text-dark-grey font-semibold mt-1">VSB - Technical University of Ostrava</p>
-                        <p class="text-sm text-gray-500 mt-1">Feb 2013 - Jul 2013</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold">High School</h4>
-                        <p class="text-dark-grey font-semibold mt-1">Ümraniye Anadolu Lisesi</p>
-                        <p class="text-sm text-gray-500 mt-1">2006 - 2010</p>
+                    <div style="position:absolute; bottom:4px; right:-6px; background:#2CA58D; color:white; border-radius:10px; padding:7px 12px; text-align:center; line-height:1.1;">
+                        <p style="font-family:'Cormorant Garant',serif; font-size:1.5rem; font-weight:700; margin:0;">10+</p>
+                        <p style="font-size:0.6rem; letter-spacing:0.06em; opacity:0.85; margin:0; font-weight:500;">YRS EXP</p>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-navy text-light-grey text-center p-6">
-        <p>© 2026 Can Öztürk. Designed with passion.</p>
-    </footer>
-
-    <div id="modal-container">
-        <div id="exp-modal-1" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Financial Controller <span class="text-dark-grey text-lg">@ Adyen</span></h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Serve as the key Financial Controller for the Banking Platform, taking ownership of accounting, reporting, and financial control for internally-built payments and banking products.</li>
-                    <li>Partner closely with Product teams and System Developers to design and build scalable accounting flows for new product launches.</li>
-                    <li>Identify and execute opportunities to optimize and automate financial processes in collaboration with Data Engineers.</li>
-                    <li>Conduct deep dives into complex platform data to understand underlying business activities and "the story behind the numbers."</li>
-                    <li>Act as the expert within Group Finance regarding Adyen’s Financial Products.</li>
-                    <li>Perform month-end close activities and contribute to the internal control framework.</li>
-                </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
             </div>
         </div>
+    </section>
 
-        <div id="exp-modal-2" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Group Reporting Analyst <span class="text-dark-grey text-lg">@ Vivo Energy</span></h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Perform financial analysis to support the consolidation of data from over 20 countries.</li>
-                    <li>Prepare and manage complex accounting structures for hyperinflationary economies.</li>
-                    <li>Develop and maintain complex Excel models and macros to automate routine financial activities.</li>
-                    <li>Coordinate external audit and external consultation procedures, including IAS 19 retirement benefits.</li>
-                    <li>Collaborated with IT to implement improvements over standardized report books and HFM tool changes.</li>
-                </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
+    <!-- EXPERIENCE -->
+    <section id="experience" style="padding:5rem 1.5rem;" class="fade-up">
+        <div style="max-width:900px; margin:0 auto;">
+            <h2 class="section-title">Work <span>Experience</span></h2>
+            <div style="position:relative;">
+                <div style="position:absolute; left:50%; transform:translateX(-50%); top:0; bottom:0; width:1px; background:linear-gradient(to bottom, #2CA58D 60%, rgba(44,165,141,0.05)); pointer-events:none;"></div>
+                <div style="display:flex; flex-direction:column; gap:2rem;">
+
+                    <!-- Adyen -->
+                    <div style="position:relative;">
+                        <div class="timeline-node"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+                            <div class="experience-item" data-modal="modal-adyen" style="cursor:pointer;">
+                                <div class="exp-card" style="margin-right:1rem;">
+                                    <p class="company-tag">Adyen · Amsterdam</p>
+                                    <h3 style="font-size:1.25rem; font-weight:700; color:#0A2342; margin:4px 0 4px;">Product Financial Controller</h3>
+                                    <p style="font-size:0.78rem; color:#2CA58D; font-weight:600; margin-bottom:8px;">Dec 2024 – Present</p>
+                                    <p style="font-size:0.83rem; color:#5a6679; line-height:1.6; margin:0 0 10px;">Main responsible for accounting, reporting and financial control across Adyen's Banking Platform and all financial products. Primary audit contact for the banking domain.</p>
+                                    <p style="font-size:0.76rem; color:#2CA58D; font-weight:500; margin:0;">View details →</p>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <!-- Vivo Energy -->
+                    <div style="position:relative;">
+                        <div class="timeline-node"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+                            <div></div>
+                            <div class="experience-item" data-modal="modal-vivo" style="cursor:pointer;">
+                                <div class="exp-card" style="margin-left:1rem;">
+                                    <p class="company-tag">Vivo Energy · Amsterdam</p>
+                                    <h3 style="font-size:1.25rem; font-weight:700; color:#0A2342; margin:4px 0 4px;">Group Reporting Analyst</h3>
+                                    <p style="font-size:0.78rem; color:#2CA58D; font-weight:600; margin-bottom:8px;">Nov 2020 – Dec 2024</p>
+                                    <p style="font-size:0.83rem; color:#5a6679; line-height:1.6; margin:0 0 10px;">Financial consolidation across 23 OUs in 20+ countries. Designed budgeting automation saving the team 96 hours per year — later implemented at SAP system level.</p>
+                                    <p style="font-size:0.76rem; color:#2CA58D; font-weight:500; margin:0;">View details →</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPMG Supervisor -->
+                    <div style="position:relative;">
+                        <div class="timeline-node"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+                            <div class="experience-item" data-modal="modal-kpmg-sup" style="cursor:pointer;">
+                                <div class="exp-card" style="margin-right:1rem;">
+                                    <p class="company-tag">KPMG Netherlands <span class="promo-badge">Promoted</span></p>
+                                    <h3 style="font-size:1.25rem; font-weight:700; color:#0A2342; margin:4px 0 4px;">Audit Supervisor</h3>
+                                    <p style="font-size:0.78rem; color:#2CA58D; font-weight:600; margin-bottom:8px;">Oct 2019 – Nov 2020</p>
+                                    <p style="font-size:0.83rem; color:#5a6679; line-height:1.6; margin:0 0 10px;">Led teams of 3 across manufacturing and industrial audits, incl. Dutch GAAP statutory work. Extended VBA automation to complex consolidated engagements.</p>
+                                    <p style="font-size:0.76rem; color:#2CA58D; font-weight:500; margin:0;">View details →</p>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <!-- KPMG Senior -->
+                    <div style="position:relative;">
+                        <div class="timeline-node secondary"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+                            <div></div>
+                            <div class="experience-item" data-modal="modal-kpmg-sen" style="cursor:pointer;">
+                                <div class="exp-card" style="margin-left:1rem;">
+                                    <p class="company-tag">KPMG Netherlands</p>
+                                    <h3 style="font-size:1.25rem; font-weight:700; color:#0A2342; margin:4px 0 4px;">Senior Auditor</h3>
+                                    <p style="font-size:0.78rem; color:#2CA58D; font-weight:600; margin-bottom:8px;">Sep 2018 – Oct 2019</p>
+                                    <p style="font-size:0.83rem; color:#5a6679; line-height:1.6; margin:0 0 10px;">Risk-based audit engagements in manufacturing and industrial sectors. Direct interface with Controllers, Internal Audit Managers and CFOs. Dutch GAAP exposure.</p>
+                                    <p style="font-size:0.76rem; color:#2CA58D; font-weight:500; margin:0;">View details →</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EY Senior -->
+                    <div style="position:relative;">
+                        <div class="timeline-node"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+                            <div class="experience-item" data-modal="modal-ey-sen" style="cursor:pointer;">
+                                <div class="exp-card" style="margin-right:1rem;">
+                                    <p class="company-tag">EY <span class="promo-badge">Promoted</span></p>
+                                    <h3 style="font-size:1.25rem; font-weight:700; color:#0A2342; margin:4px 0 4px;">Senior External Auditor</h3>
+                                    <p style="font-size:0.78rem; color:#2CA58D; font-weight:600; margin-bottom:8px;">Jun 2017 – Aug 2018</p>
+                                    <p style="font-size:0.83rem; color:#5a6679; line-height:1.6; margin:0 0 10px;">Led audits for four of Turkey's largest companies. Built VBA trial balance automation managing 12 concurrent TB versions — saving ~12 hours per audit cycle.</p>
+                                    <p style="font-size:0.76rem; color:#2CA58D; font-weight:500; margin:0;">View details →</p>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <!-- EY Assistant -->
+                    <div style="position:relative;">
+                        <div class="timeline-node secondary"></div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+                            <div></div>
+                            <div class="experience-item" data-modal="modal-ey-asst" style="cursor:pointer;">
+                                <div class="exp-card" style="margin-left:1rem;">
+                                    <p class="company-tag">EY</p>
+                                    <h3 style="font-size:1.25rem; font-weight:700; color:#0A2342; margin:4px 0 4px;">Audit Assistant</h3>
+                                    <p style="font-size:0.78rem; color:#2CA58D; font-weight:600; margin-bottom:8px;">Oct 2015 – Jun 2017</p>
+                                    <p style="font-size:0.83rem; color:#5a6679; line-height:1.6; margin:0 0 10px;">Substantive and control-based audit procedures across all financial statement areas.</p>
+                                    <p style="font-size:0.76rem; color:#2CA58D; font-weight:500; margin:0;">View details →</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+    </section>
 
-        <div id="exp-modal-3" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Audit Supervisor & Senior Auditor <span class="text-dark-grey text-lg">@ KPMG Netherlands</span></h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Supervise a team of auditors and oversee their work to ensure quality and timely completion of financial audits.</li>
-                    <li>Responsible for managing and performing all aspects of the audit engagement.</li>
-                    <li>Utilized risk-based approach to audit, gain extensive understanding of business and industry environment.</li>
-                    <li>Interfaced with client personnel including Controller, Internal Audit Manager, Financial reporting Manager and CFO.</li>
-                </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
+    <!-- SKILLS -->
+    <section id="skills" style="padding:5rem 1.5rem; background:white;" class="fade-up">
+        <div style="max-width:1000px; margin:0 auto;">
+            <h2 class="section-title">Technical <span>&</span> Core Skills</h2>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+
+                <!-- Finance card -->
+                <div style="background:#F8FDFC; border:1px solid rgba(44,165,141,0.14); border-radius:16px; padding:1.75rem;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:1.25rem;">
+                        <div style="width:36px; height:36px; background:#2CA58D; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                        </div>
+                        <h3 style="font-size:1.1rem; font-weight:700; color:#0A2342; margin:0;">Finance & Accounting</h3>
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:7px;">
+                        <span class="skill-chip">Advanced Excel & Modelling</span>
+                        <span class="skill-chip">IFRS & TR GAAP</span>
+                        <span class="skill-chip">Dutch GAAP</span>
+                        <span class="skill-chip">Financial Consolidation</span>
+                        <span class="skill-chip">Group Reporting</span>
+                        <span class="skill-chip">HFM / Hyperion</span>
+                        <span class="skill-chip">SAP & SGR</span>
+                        <span class="skill-chip">IAS 19</span>
+                        <span class="skill-chip">Internal Controls</span>
+                        <span class="skill-chip">Product Accounting</span>
+                    </div>
+                </div>
+
+                <!-- Tech card (dark) -->
+                <div style="background:#0A2342; border-radius:16px; padding:1.75rem;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:1.4rem;">
+                        <div style="width:36px; height:36px; background:rgba(44,165,141,0.2); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <svg width="18" height="18" fill="#2CA58D" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                        </div>
+                        <h3 style="font-size:1.1rem; font-weight:700; color:white; margin:0;">Tech & Automation</h3>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:14px;">
+                        <div>
+                            <p style="font-size:0.72rem; color:#2CA58D; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 3px; font-family:'Outfit',sans-serif;">VBA & Excel Automation</p>
+                            <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.55; margin:0; font-family:'Outfit',sans-serif;">Builds purpose-built automation tools from scratch — applied across every employer since 2017, from audit engagement tools to group-wide budgeting pipelines.</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.72rem; color:#2CA58D; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 3px; font-family:'Outfit',sans-serif;">AI Collaboration</p>
+                            <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.55; margin:0; font-family:'Outfit',sans-serif;">Deeply integrates AI into daily analytical workflows — compressing cycle times and unlocking faster, more precise insights on complex financial data.</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.72rem; color:#2CA58D; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 3px; font-family:'Outfit',sans-serif;">Custom AI Agent Design</p>
+                            <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.55; margin:0; font-family:'Outfit',sans-serif;">Designs task-specific AI agents to segment workloads into focused streams — improving accuracy, speed, and output quality simultaneously across analytical tasks.</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.72rem; color:#2CA58D; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 3px; font-family:'Outfit',sans-serif;">Rapid Prototyping & Adaptation</p>
+                            <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.55; margin:0; font-family:'Outfit',sans-serif;">Develops working process solutions and tooling rapidly without a dedicated dev team. Adapts to any new technology, system, or platform with minimal ramp-up time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages & Certs card -->
+                <div style="background:#F8FDFC; border:1px solid rgba(44,165,141,0.14); border-radius:16px; padding:1.75rem;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:1.25rem;">
+                        <div style="width:36px; height:36px; background:#2CA58D; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+                        </div>
+                        <h3 style="font-size:1.1rem; font-weight:700; color:#0A2342; margin:0;">Languages</h3>
+                    </div>
+                    <div style="margin-bottom:1.5rem;">
+                        <div class="lang-row"><span style="font-size:0.87rem; color:#1a2332; font-weight:500;">Turkish</span><span class="lang-badge">Native</span></div>
+                        <div class="lang-row"><span style="font-size:0.87rem; color:#1a2332; font-weight:500;">English</span><span class="lang-badge">Professional</span></div>
+                        <div class="lang-row"><span style="font-size:0.87rem; color:#1a2332; font-weight:500;">Dutch</span><span class="lang-badge">Conversational</span></div>
+                    </div>
+                    <div style="border-top:1px solid rgba(44,165,141,0.15); padding-top:1rem;">
+                        <p style="font-size:0.68rem; font-weight:700; color:#8D99A8; text-transform:uppercase; letter-spacing:0.09em; margin:0 0 10px; font-family:'Outfit',sans-serif;">Certifications</p>
+                        <div class="cert-row">
+                            <div class="cert-dot"></div>
+                            <span style="font-size:0.85rem; color:#1a2332; font-family:'Outfit',sans-serif;">Turkish CPA <span style="color:#2CA58D; font-weight:600;">(Qualified)</span></span>
+                        </div>
+                        <div class="cert-row">
+                            <div class="cert-dot outline"></div>
+                            <span style="font-size:0.85rem; color:#1a2332; font-family:'Outfit',sans-serif;">ACCA <span style="color:#5a6679;">(Finalist — 3 exams + 1 module)</span></span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </section>
 
-        <div id="exp-modal-4" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Senior External Auditor & Audit Assistant <span class="text-dark-grey text-lg">@ EY</span></h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Led external audits process of four biggest companies in Turkey in manufacturing, sports and consumer products sectors.</li>
-                    <li>Prepared financial reports based on IFRS and TR GAAP and improved IFRS knowledge.</li>
-                    <li>Assisted client's IFRS 15 implementation process and gained an understanding about how IFRS 15 adoption affected companies.</li>
-                    <li>Performed both substantive and control based audit procedures to include all areas of financial statement.</li>
-                </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
+    <!-- EDUCATION -->
+    <section id="education" style="padding:5rem 1.5rem;" class="fade-up">
+        <div style="max-width:700px; margin:0 auto;">
+            <h2 class="section-title">Education</h2>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+                <div style="background:white; border-radius:12px; padding:1.4rem 1.5rem; border:1px solid rgba(0,0,0,0.05);">
+                    <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#2CA58D; margin:0 0 5px; font-family:'Outfit',sans-serif;">2010 – 2014</p>
+                    <h4 style="font-size:1.1rem; font-weight:700; color:#0A2342; margin:0 0 4px;">Bachelor's in Economics</h4>
+                    <p style="font-size:0.83rem; color:#6C757D; font-weight:500; margin:0; font-family:'Outfit',sans-serif;">Istanbul University</p>
+                </div>
+                <div style="background:white; border-radius:12px; padding:1.4rem 1.5rem; border:1px solid rgba(0,0,0,0.05);">
+                    <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#2CA58D; margin:0 0 5px; font-family:'Outfit',sans-serif;">Feb – Jul 2013</p>
+                    <h4 style="font-size:1.1rem; font-weight:700; color:#0A2342; margin:0 0 4px;">Erasmus Exchange — Economics</h4>
+                    <p style="font-size:0.83rem; color:#6C757D; font-weight:500; margin:0; font-family:'Outfit',sans-serif;">VSB – Technical University of Ostrava</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+</main>
+
+<footer style="background:#0A2342; color:rgba(255,255,255,0.4); text-align:center; padding:1.5rem; font-size:0.78rem; font-family:'Outfit',sans-serif;">
+    <p style="margin:0;">© 2026 Can Öztürk · Amsterdam · <a href="mailto:canztrk@outlook.com.tr" style="color:#2CA58D; text-decoration:none;">canztrk@outlook.com.tr</a></p>
+</footer>
+
+<!-- MODAL OVERLAY -->
+<div id="overlay" style="display:none; position:fixed; inset:0; background:rgba(10,35,66,0.72); z-index:200; justify-content:center; align-items:center; padding:1rem; backdrop-filter:blur(5px);" onclick="handleOverlayClick(event)">
+
+    <!-- Adyen -->
+    <div id="modal-adyen" class="modal-panel" style="display:none; background:white; border-radius:18px; padding:2rem; max-width:620px; width:100%; max-height:88vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#aaa; font-size:1.4rem; line-height:1; font-family:'Outfit',sans-serif;">×</button>
+        <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#2CA58D; margin:0 0 4px; font-family:'Outfit',sans-serif;">Dec 2024 – Present</p>
+        <h3 style="font-size:1.7rem; font-weight:700; color:#0A2342; margin:0 0 3px;">Financial Controller</h3>
+        <p style="font-size:0.88rem; color:#6C757D; font-weight:500; margin:0 0 1.25rem; font-family:'Outfit',sans-serif;">Adyen · Amsterdam</p>
+        <div class="achievement-bar">Primary financial controller for Adyen's Banking Platform, covering all internally-built financial products end-to-end. Main point of contact for all audit and control matters in the banking domain.</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+            <div class="modal-bullet"><span class="dot">▸</span><span>Main responsible for accounting, reporting and financial control across all internally-built banking and payment products — owns the Banking domain end-to-end and serves as primary point of contact for all internal and external audit requests related to financial products.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Partners with Product and Engineering teams to design scalable accounting flows ahead of new product launches, ensuring full financial compliance from day one.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Collaborated with Data Engineering to replace 8 hours of monthly manual close work with a Python-based automated data mapping pipeline — shifting controller effort from data preparation to review, governance, and exception management.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Designed and deployed a mid-month monitoring framework providing live visibility into account balances, outliers, and reconciliation mismatches — a capability that previously required 4–8 additional hours of unstructured manual investigation per period.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Acts as Group Finance expert on Adyen's financial products, bridging technical product flows and compliant accounting requirements across the organisation.</span></div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    <!-- Vivo Energy -->
+    <div id="modal-vivo" class="modal-panel" style="display:none; background:white; border-radius:18px; padding:2rem; max-width:620px; width:100%; max-height:88vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#aaa; font-size:1.4rem; line-height:1; font-family:'Outfit',sans-serif;">×</button>
+        <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#2CA58D; margin:0 0 4px; font-family:'Outfit',sans-serif;">Nov 2020 – Dec 2024</p>
+        <h3 style="font-size:1.7rem; font-weight:700; color:#0A2342; margin:0 0 3px;">Group Reporting Analyst</h3>
+        <p style="font-size:0.88rem; color:#6C757D; font-weight:500; margin:0 0 1.25rem; font-family:'Outfit',sans-serif;">Vivo Energy · Amsterdam</p>
+        <div class="achievement-bar">Designed OU budgeting automation that saved the team 24h per cycle (~96h/year) — initiative escalated and permanently implemented at SAP system level.</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+            <div class="modal-bullet"><span class="dot">▸</span><span>Part of a 4-person group reporting team contributing to financial consolidation across 23 operating units in 20+ countries, synthesising data to support quarterly reporting to senior management and external stakeholders.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Designed and rolled out a standardised Excel budgeting template distributed to all 23 OUs, automating data collection and ingestion — saving the team 24 hours per budgeting cycle (~96 hours per year). The initiative was subsequently escalated and implemented at SAP system level, delivering permanent, accurate automation at group scale.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Built and maintained Excel/VBA models to automate recurring monthly financial tasks, materially reducing manual effort and increasing analyst capacity for value-adding analysis.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Prepared and managed complex accounting structures for hyperinflationary economies across multiple subsidiaries, ensuring compliance with relevant IFRS standards.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Coordinated external audit procedures and IAS 19 retirement benefit consultations across the group.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Collaborated with IT on HFM (Hyperion Financial Management) improvements and standardised group report book upgrades.</span></div>
+        </div>
+    </div>
 
-            const modalTriggers = document.querySelectorAll('.experience-item, .project-card');
-            const modals = document.querySelectorAll('.modal');
-            const closeButtons = document.querySelectorAll('.modal-close-btn');
+    <!-- KPMG Supervisor -->
+    <div id="modal-kpmg-sup" class="modal-panel" style="display:none; background:white; border-radius:18px; padding:2rem; max-width:620px; width:100%; max-height:88vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#aaa; font-size:1.4rem; line-height:1; font-family:'Outfit',sans-serif;">×</button>
+        <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#2CA58D; margin:0 0 4px; font-family:'Outfit',sans-serif;">Oct 2019 – Nov 2020</p>
+        <h3 style="font-size:1.7rem; font-weight:700; color:#0A2342; margin:0 0 3px;">Audit Supervisor</h3>
+        <p style="font-size:0.88rem; color:#6C757D; font-weight:500; margin:0 0 1.25rem; font-family:'Outfit',sans-serif;">KPMG Netherlands · Amstelveen</p>
+        <div class="achievement-bar">Extended the VBA automation approach to complex consolidated audit engagements in Dutch manufacturing and industrial sectors, including Dutch GAAP statutory work.</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+            <div class="modal-bullet"><span class="dot">▸</span><span>Led audit teams of 3 (2 seniors + 1 trainee) across multiple concurrent engagements in manufacturing and industrial sectors, including Dutch GAAP statutory audits — demonstrating rapid adaptation to new regulatory frameworks.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Designed and implemented a VBA-based trial balance automation tool for a complex consolidated engagement, simplifying multi-entity TB structures and significantly reducing manual processing time across both standalone and consolidated audits.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Developed and executed audit plans, reviewed financial statements and internal controls, and delivered findings directly to client Controllers and CFOs.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Trained and mentored junior team members; coordinated with managers and partners to ensure quality, profitability, and client satisfaction across all engagements.</span></div>
+        </div>
+    </div>
 
-            function openModal(modalId) {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.remove('opacity-0', 'pointer-events-none');
-                    modal.querySelector('.modal-content').classList.remove('scale-95');
-                    modal.querySelector('.modal-content').classList.add('scale-100');
-                }
-            }
+    <!-- KPMG Senior -->
+    <div id="modal-kpmg-sen" class="modal-panel" style="display:none; background:white; border-radius:18px; padding:2rem; max-width:620px; width:100%; max-height:88vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#aaa; font-size:1.4rem; line-height:1; font-family:'Outfit',sans-serif;">×</button>
+        <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#2CA58D; margin:0 0 4px; font-family:'Outfit',sans-serif;">Sep 2018 – Oct 2019</p>
+        <h3 style="font-size:1.7rem; font-weight:700; color:#0A2342; margin:0 0 3px;">Senior Auditor</h3>
+        <p style="font-size:0.88rem; color:#6C757D; font-weight:500; margin:0 0 1.25rem; font-family:'Outfit',sans-serif;">KPMG Netherlands · Amstelveen</p>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+            <div class="modal-bullet"><span class="dot">▸</span><span>Managed and performed all aspects of audit engagements using a risk-based approach, gaining deep understanding of client business environments across manufacturing and industrial sectors in the Netherlands.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Interfaced directly with client Controllers, Internal Audit Managers, and CFOs to communicate audit findings and recommendations.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Gained comprehensive exposure to Dutch GAAP statutory requirements, expanding technical competency beyond IFRS and TR GAAP frameworks.</span></div>
+        </div>
+    </div>
 
-            function closeModal(modal) {
-                if (modal) {
-                    modal.querySelector('.modal-content').classList.add('scale-95');
-                    modal.querySelector('.modal-content').classList.remove('scale-100');
-                    modal.classList.add('opacity-0');
-                    setTimeout(() => { modal.classList.add('pointer-events-none'); }, 300);
-                }
-            }
+    <!-- EY Senior -->
+    <div id="modal-ey-sen" class="modal-panel" style="display:none; background:white; border-radius:18px; padding:2rem; max-width:620px; width:100%; max-height:88vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#aaa; font-size:1.4rem; line-height:1; font-family:'Outfit',sans-serif;">×</button>
+        <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#2CA58D; margin:0 0 4px; font-family:'Outfit',sans-serif;">Jun 2017 – Aug 2018</p>
+        <h3 style="font-size:1.7rem; font-weight:700; color:#0A2342; margin:0 0 3px;">Senior External Auditor</h3>
+        <p style="font-size:0.88rem; color:#6C757D; font-weight:500; margin:0 0 1.25rem; font-family:'Outfit',sans-serif;">EY · Istanbul</p>
+        <div class="achievement-bar">Built VBA trial balance automation managing up to 12 concurrent TB versions — saving the team ~12 hours per audit cycle in manual rework.</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+            <div class="modal-bullet"><span class="dot">▸</span><span>Led external audits for four of Turkey's largest companies across manufacturing, sports, and consumer products sectors.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Built a bespoke Excel/VBA trial balance automation tool per engagement — on one engagement managing up to 12 concurrent TB versions, saving approximately 12 hours per audit cycle in manual rework for the engagement team.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Prepared financial statements under IFRS and TR GAAP; supported client IFRS 15 implementation and revenue recognition transition across businesses of varying size and complexity.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Applied risk-based audit methodology across all financial statement areas; responsible for supervising staff and coordinating with managers and partners to ensure engagement profitability.</span></div>
+        </div>
+    </div>
 
-            modalTriggers.forEach(trigger => {
-                trigger.addEventListener('click', () => { openModal(trigger.getAttribute('data-modal-target')); });
-            });
+    <!-- EY Assistant -->
+    <div id="modal-ey-asst" class="modal-panel" style="display:none; background:white; border-radius:18px; padding:2rem; max-width:620px; width:100%; max-height:88vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; color:#aaa; font-size:1.4rem; line-height:1; font-family:'Outfit',sans-serif;">×</button>
+        <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#2CA58D; margin:0 0 4px; font-family:'Outfit',sans-serif;">Oct 2015 – Jun 2017</p>
+        <h3 style="font-size:1.7rem; font-weight:700; color:#0A2342; margin:0 0 3px;">Audit Assistant</h3>
+        <p style="font-size:0.88rem; color:#6C757D; font-weight:500; margin:0 0 1.25rem; font-family:'Outfit',sans-serif;">EY · Istanbul</p>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+            <div class="modal-bullet"><span class="dot">▸</span><span>Performed substantive and control-based audit procedures across all financial statement areas, both as a team member and in-charge on smaller engagements.</span></div>
+            <div class="modal-bullet"><span class="dot">▸</span><span>Conducted client walkthroughs of internal processes to document and assess business controls.</span></div>
+        </div>
+    </div>
 
-            closeButtons.forEach(button => { button.addEventListener('click', () => { closeModal(button.closest('.modal')); }); });
+</div>
 
-            modals.forEach(modal => { modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); }); });
-            document.addEventListener('keydown', (e) => { if (e.key === "Escape") modals.forEach(closeModal); });
+<script>
+document.getElementById('mob-btn').addEventListener('click', () => {
+    const m = document.getElementById('mob-menu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+});
 
-            const sections = document.querySelectorAll('.fade-in-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
-            }, { threshold: 0.1 });
-            sections.forEach(section => { observer.observe(section); });
-        });
-    </script>
+document.querySelectorAll('.experience-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const id = item.getAttribute('data-modal');
+        document.querySelectorAll('.modal-panel').forEach(p => p.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+        document.getElementById('overlay').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+function closeModal() {
+    document.getElementById('overlay').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+    if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
