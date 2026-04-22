@@ -102,7 +102,7 @@
         .experience-item:focus-visible { outline: none; }
         .experience-item:focus-visible .exp-card { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-        /* === SKILLS SECTION (NEW INTEGRATED DESIGN) === */
+        /* === SKILLS SECTION === */
         .skills-grid {
             display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto;
         }
@@ -154,41 +154,21 @@
         /* === ANIMATIONS === */
         .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .fade-up.in { opacity: 1; transform: translateY(0); }
+        
         /* === PRINT STYLESHEET === */
-@media print {
-    /* 1. Hide web-only interactive elements */
-    header, footer, button, .timeline-line, .timeline-node {
-        display: none !important;
-    }
-
-    /* 2. Reset backgrounds and text to save ink and look like a CV */
-    body, #home, section, .exp-card, .skill-col {
-        background: white !important;
-        color: black !important;
-        box-shadow: none !important;
-        border: none !important;
-    }
-
-    /* 3. Reformat the layout for A4/Letter paper */
-    main { padding-top: 0 !important; }
-    #home { min-height: auto !important; padding: 2rem 0 !important; }
-    .container { max-width: 100% !important; padding: 0 !important; }
-    
-    /* 4. Ensure elements stack naturally instead of using web grids */
-    .hero-grid { display: none !important; }
-    .timeline-row, .skills-grid { 
-        display: block !important; 
-        margin-bottom: 2rem !important; 
-    }
-    
-    /* 5. Force page breaks so sections don't get cut in half */
-    section { page-break-inside: avoid; }
-    .exp-card-wrapper { page-break-inside: avoid; margin-bottom: 1.5rem; padding: 0 !important; }
-    
-    /* 6. Expand UI elements */
-    .exp-card::after { display: none !important; } /* remove hover line */
-    p[aria-hidden="true"] { display: none !important; } /* hide "View details ->" */
-}
+        @media print {
+            header, footer, button, .timeline-line, .timeline-node { display: none !important; }
+            body, #home, section, .exp-card, .skill-col { background: white !important; color: black !important; box-shadow: none !important; border: none !important; }
+            main { padding-top: 0 !important; }
+            #home { min-height: auto !important; padding: 2rem 0 !important; }
+            .container { max-width: 100% !important; padding: 0 !important; }
+            .hero-grid { display: none !important; }
+            .timeline-row, .skills-grid { display: block !important; margin-bottom: 2rem !important; }
+            section { page-break-inside: avoid; }
+            .exp-card-wrapper { page-break-inside: avoid; margin-bottom: 1.5rem; padding: 0 !important; }
+            .exp-card::after { display: none !important; } 
+            p[aria-hidden="true"] { display: none !important; } 
+        }
     </style>
 </head>
 <body>
@@ -219,7 +199,7 @@
         <div style="position:absolute; right:8%; bottom:-80px; width:420px; height:420px; border-radius:50%; border:1px solid rgba(44,165,141,0.07); pointer-events:none;"></div>
         <div class="container flex items-center justify-between flex-wrap" style="gap:4rem; position:relative; z-index:2; padding-top:4rem; padding-bottom:4rem;">
             <div style="flex:1; min-width:280px;">
-                <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem;">Financial Controller · Fintech & Banking Products</p>
+                <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem;">Financial Controller · Group Reporting & Financial Operations</p>
                 <h1 class="serif" style="font-size:clamp(3.2rem,7vw,5.2rem); font-weight:700; color:white; line-height:0.95; margin-bottom:1.5rem;">Can<br>Öztürk</h1>
                 <div class="flex flex-wrap gap-2" style="margin-bottom:1.5rem;">
                     <span class="cert-badge">Turkish CPA</span>
@@ -227,7 +207,7 @@
                     <span class="cert-badge">Amsterdam</span>
                 </div>
                 <p style="font-size:0.95rem; color:rgba(255,255,255,0.65); max-width:530px; margin-bottom:2rem;">
-                    Financial controller with 10 years across Big 4 audit (EY, KPMG), multi-country group reporting, and fintech product finance. Consistent track record of building automation solutions at every employer — from VBA audit tools at EY and KPMG, to SAP-level budgeting pipelines at Vivo Energy, to Python-based close automation at Adyen.
+                    Financial controller with 10+ years across Big 4 audit (EY, KPMG), multi-country group reporting, and modern finance operations. Consistent track record of professionalizing finance functions, building scalable control frameworks, and driving process automation — from VBA audit tools, to SAP-level budgeting pipelines at Vivo Energy, to advanced data-driven close processes at Adyen.
                 </p>
                 <div class="flex gap-4 items-center">
                     <a href="mailto:canztrk@outlook.com.tr" class="social-link" aria-label="Email">
@@ -269,9 +249,9 @@
                     <button class="experience-item" data-modal="modal-adyen" aria-label="View details for Adyen role">
                         <div class="exp-card">
                             <p class="company-tag">Adyen · Amsterdam</p>
-                            <h3 style="font-size:1.25rem; font-weight:700; color:var(--primary); margin:4px 0 4px;">Product Financial Controller</h3>
+                            <h3 style="font-size:1.25rem; font-weight:700; color:var(--primary); margin:4px 0 4px;">Financial Controller</h3>
                             <p style="font-size:0.78rem; color:var(--accent); font-weight:600; margin-bottom:8px;">Dec 2024 – Present</p>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin:0 0 10px;">Main responsible for accounting, reporting and financial control across Adyen's Banking Platform and all financial products.</p>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin:0 0 10px;">Main responsible for accounting, reporting, and financial control, overseeing complex financial flows and process automation.</p>
                             <p style="font-size:0.76rem; color:var(--accent); font-weight:500; margin:0;" aria-hidden="true">View details →</p>
                         </div>
                     </button>
@@ -288,7 +268,7 @@
                             <p class="company-tag">Vivo Energy · Amsterdam</p>
                             <h3 style="font-size:1.25rem; font-weight:700; color:var(--primary); margin:4px 0 4px;">Group Reporting Analyst</h3>
                             <p style="font-size:0.78rem; color:var(--accent); font-weight:600; margin-bottom:8px;">Nov 2020 – Dec 2024</p>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin:0 0 10px;">Financial consolidation across 23 OUs in 20+ countries. Designed budgeting automation saving the team 96 hours per year.</p>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin:0 0 10px;">Financial consolidation across 23 asset-heavy OUs in 20+ countries. Designed budgeting automation saving the team 96 hours per year.</p>
                             <p style="font-size:0.76rem; color:var(--accent); font-weight:500; margin:0;" aria-hidden="true">View details →</p>
                         </div>
                     </button>
@@ -374,16 +354,16 @@
                     <h3 style="font-size:1.2rem; font-weight:700; color:var(--primary); margin:0;">Finance & Accounting</h3>
                 </div>
                 <div>
-                    <span class="skill-chip">Advanced Excel & Modelling</span>
-                    <span class="skill-chip">IFRS & TR GAAP</span>
-                    <span class="skill-chip">Dutch GAAP</span>
                     <span class="skill-chip">Financial Consolidation</span>
                     <span class="skill-chip">Group Reporting</span>
+                    <span class="skill-chip">IFRS & TR GAAP</span>
+                    <span class="skill-chip">Dutch GAAP</span>
+                    <span class="skill-chip">Capex & Asset Control</span>
+                    <span class="skill-chip">Cash Forecasting</span>
                     <span class="skill-chip">HFM / Hyperion</span>
                     <span class="skill-chip">SAP & SGR</span>
                     <span class="skill-chip">IAS 19</span>
                     <span class="skill-chip">Internal Controls</span>
-                    <span class="skill-chip">Product Accounting</span>
                 </div>
             </div>
 
@@ -392,23 +372,23 @@
                     <div class="skill-icon-box">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
                     </div>
-                    <h3 style="font-size:1.2rem; font-weight:700; color:var(--primary); margin:0;">Tech & Automation</h3>
+                    <h3 style="font-size:1.2rem; font-weight:700; color:var(--primary); margin:0;">Tech & Optimization</h3>
                 </div>
                 <div class="tech-item">
                     <h4>VBA & Excel Automation</h4>
                     <p>Builds purpose-built automation tools from scratch — applied across every employer since 2017, from audit tools to group-wide budgeting pipelines.</p>
                 </div>
                 <div class="tech-item">
-                    <h4>AI Collaboration</h4>
-                    <p>Deeply integrates AI into daily analytical workflows — compressing cycle times and unlocking faster insights on complex financial data.</p>
+                    <h4>Financial Control Frameworks</h4>
+                    <p>Designs and implements robust internal controls to ensure accurate financial reporting and compliance across complex organizational structures.</p>
                 </div>
                 <div class="tech-item">
-                    <h4>Custom AI Agent Design</h4>
-                    <p>Designs task-specific AI agents to segment workloads into focused streams — improving accuracy, speed, and output quality.</p>
+                    <h4>ERP & Financial Systems</h4>
+                    <p>Leverages system capabilities (including SAP and HFM) to optimize finance workflows, ensuring seamless integration between operational data and accounting records.</p>
                 </div>
                 <div class="tech-item">
-                    <h4>Rapid Prototyping</h4>
-                    <p>Develops working process solutions and tooling rapidly. Adapts to any new technology, system, or platform with minimal ramp-up time.</p>
+                    <h4>Process Optimization</h4>
+                    <p>Develops working process solutions rapidly. Adapts to any new technology, system, or operational platform with minimal ramp-up time.</p>
                 </div>
             </div>
 
@@ -477,11 +457,11 @@
         <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin:0 0 4px;">Dec 2024 – Present</p>
         <h3 style="font-size:1.7rem; font-weight:700; color:var(--primary); margin:0 0 3px;">Financial Controller</h3>
         <p style="font-size:0.9rem; color:var(--text-muted); font-weight:500; margin:0 0 1.25rem;">Adyen · Amsterdam</p>
-        <div class="achievement-bar">Primary financial controller for Adyen's Banking Platform, covering all internally-built financial products end-to-end.</div>
-        <div class="modal-bullet"><span class="dot">▸</span><span>Main responsible for accounting, reporting and financial control across all internally-built banking and payment products.</span></div>
-        <div class="modal-bullet"><span class="dot">▸</span><span>Partners with Product and Engineering teams to design scalable accounting flows ahead of new product launches.</span></div>
-        <div class="modal-bullet"><span class="dot">▸</span><span>Collaborated with Data Engineering to replace 8 hours of monthly manual close work with a Python-based automated data mapping pipeline.</span></div>
-        <div class="modal-bullet"><span class="dot">▸</span><span>Designed and deployed a mid-month monitoring framework providing live visibility into account balances.</span></div>
+        <div class="achievement-bar">Primary financial controller managing complex data flows, month-end close processes, and audit relations for Adyen's banking entity.</div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Main responsible for accounting, reporting, and financial control across Adyen's regulatory and banking operations.</span></div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Partners with operational and engineering teams to design scalable accounting flows and robust control frameworks.</span></div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Streamlined the month-end close by replacing manual preparation work with automated data mapping, shifting focus to variance analysis and governance.</span></div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Designed and deployed a mid-month monitoring framework providing live visibility into account balances and operational exceptions.</span></div>
     </div>
 
     <div id="modal-vivo" class="modal-panel">
@@ -490,8 +470,9 @@
         <h3 style="font-size:1.7rem; font-weight:700; color:var(--primary); margin:0 0 3px;">Group Reporting Analyst</h3>
         <p style="font-size:0.9rem; color:var(--text-muted); font-weight:500; margin:0 0 1.25rem;">Vivo Energy · Amsterdam</p>
         <div class="achievement-bar">Designed OU budgeting automation that saved the team 24h per cycle (~96h/year) — escalated and permanently implemented at SAP level.</div>
-        <div class="modal-bullet"><span class="dot">▸</span><span>Financial consolidation across 23 operating units in 20+ countries, synthesising data to support quarterly reporting.</span></div>
-        <div class="modal-bullet"><span class="dot">▸</span><span>Built and maintained Excel/VBA models to automate recurring monthly financial tasks.</span></div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Part of a 4-person group reporting team contributing to financial consolidation across 23 asset-heavy operating units, synthesising data for quarterly reporting.</span></div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Monitored cash flows, working capital, and capital expenditure (Capex) across extensive terminal and logistics operations.</span></div>
+        <div class="modal-bullet"><span class="dot">▸</span><span>Built and maintained Excel/VBA models to automate recurring monthly financial tasks and improve analytical capacity.</span></div>
         <div class="modal-bullet"><span class="dot">▸</span><span>Managed complex accounting structures for hyperinflationary economies across multiple subsidiaries.</span></div>
         <div class="modal-bullet"><span class="dot">▸</span><span>Coordinated external audit procedures and IAS 19 retirement benefit consultations across the group.</span></div>
     </div>
@@ -540,7 +521,6 @@
 </div>
 
 <script>
-    // --- Mobile Navigation ---
     const mobileBtn = document.getElementById('mob-btn');
     const mobileMenu = document.getElementById('mob-menu');
 
@@ -550,7 +530,6 @@
         mobileMenu.classList.toggle('hidden');
     });
 
-    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
@@ -558,27 +537,21 @@
         });
     });
 
-    // --- Modal Logic (Accessible Event Delegation) ---
     const overlay = document.getElementById('overlay');
     let activeModal = null;
     let previouslyFocusedElement = null;
 
     document.addEventListener('click', (event) => {
-        // Open Modal
         const trigger = event.target.closest('.experience-item');
         if (trigger) {
             const modalId = trigger.getAttribute('data-modal');
             openModal(modalId, trigger);
             return;
         }
-
-        // Close via Overlay Click
         if (event.target === overlay) {
             closeModal();
             return;
         }
-
-        // Close via X button
         const closeBtn = event.target.closest('.modal-close');
         if (closeBtn) {
             closeModal();
@@ -596,9 +569,8 @@
             activeModal.setAttribute('aria-modal', 'true');
             
             overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Lock scroll
+            document.body.style.overflow = 'hidden'; 
             
-            // Focus the close button for screen readers / keyboard users
             const closeBtn = activeModal.querySelector('.modal-close');
             if (closeBtn) closeBtn.focus();
         }
@@ -610,20 +582,17 @@
         document.body.style.overflow = '';
         activeModal = null;
         
-        // Return focus to the button that opened the modal
         if (previouslyFocusedElement) {
             previouslyFocusedElement.focus();
         }
     }
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => { 
         if (e.key === 'Escape' && activeModal) {
             closeModal(); 
         }
     });
 
-    // --- Scroll Animations ---
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => { 
             if (entry.isIntersecting) entry.target.classList.add('in'); 
