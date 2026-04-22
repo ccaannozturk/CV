@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nil Mumcu | Applied Data Scientist</title>
+    <title>Can Öztürk | Product Financial Controller</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
         /* Custom Styles */
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #F8F9FA; /* Off-White */
-            color: #34495E; /* Darker text for better contrast */
+            background-color: #F8F9FA; 
+            color: #34495E; 
         }
         h1, h2, h3, .font-montserrat {
             font-family: 'Montserrat', sans-serif;
@@ -25,7 +25,6 @@
         .text-light-grey { color: #F8F9FA; }
         .text-dark-grey { color: #6C757D; }
         
-        /* Timeline specific styles */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -39,16 +38,9 @@
             z-index: 10;
         }
 
-
-        /* Modal styles */
-        .modal {
-            transition: opacity 0.3s ease;
-        }
-        .modal-content {
-            transition: transform 0.3s ease;
-        }
+        .modal { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
         
-        /* Animate sections on scroll */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -62,345 +54,260 @@
 </head>
 <body class="antialiased">
 
-
-    <!-- Header & Navigation -->
     <header class="bg-navy text-light-grey p-4 fixed w-full top-0 z-50 shadow-lg">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="text-xl font-montserrat font-bold">Nil Mumcu</a>
+            <a href="#home" class="text-xl font-montserrat font-bold">Can Öztürk</a>
             <div class="hidden md:flex space-x-6">
                 <a href="#experience" class="hover:text-teal transition-colors duration-300">Experience</a>
                 <a href="#skills" class="hover:text-teal transition-colors duration-300">Skills</a>
-                <a href="#projects" class="hover:text-teal transition-colors duration-300">Projects</a>
                 <a href="#education" class="hover:text-teal transition-colors duration-300">Education</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden mt-4">
             <a href="#experience" class="block py-2 px-4 text-sm hover:bg-teal">Experience</a>
             <a href="#skills" class="block py-2 px-4 text-sm hover:bg-teal">Skills</a>
-            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-teal">Projects</a>
             <a href="#education" class="block py-2 px-4 text-sm hover:bg-teal">Education</a>
         </div>
     </header>
 
-
     <main class="pt-16">
-        <!-- Home Section -->
         <section id="home" class="min-h-screen flex items-center bg-navy text-light-grey">
             <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                    <h1 class="text-5xl md:text-6xl font-bold font-montserrat mb-4">Nil Mumcu</h1>
-                    <h2 class="text-2xl md:text-3xl text-teal font-montserrat mb-6">Applied Data Scientist</h2>
+                    <h1 class="text-5xl md:text-6xl font-bold font-montserrat mb-4">Can Öztürk</h1>
+                    <h2 class="text-2xl md:text-3xl text-teal font-montserrat mb-6">Product Financial Controller</h2>
                     <p class="text-lg mb-8 max-w-xl mx-auto md:mx-0">
-                        MSc Applied Data Science candidate with a passion for data analysis, modeling, and responsible AI. Skilled in creating transparent, unbiased data solutions and communicating insights to diverse stakeholders.
+                        Innovative Financial Controller based in Amstelveen, bridging the gap between finance, technology, and product development. Expert in rapid technological adaptation, AI collaboration, and process automation to deliver deep insights and drive operational excellence.
                     </p>
                     <div class="flex justify-center md:justify-start space-x-6">
-                        <a href="mailto:nilmumcu7@gmail.com" class="hover:text-teal transition-colors duration-300" aria-label="Email">
+                        <a href="mailto:canztrk@outlook.com.tr" class="hover:text-teal transition-colors duration-300" aria-label="Email">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                         </a>
-                        <a href="tel:+31627135400" class="hover:text-teal transition-colors duration-300" aria-label="Phone">
+                        <a href="tel:+31625128602" class="hover:text-teal transition-colors duration-300" aria-label="Phone">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/nil-mumcu/" target="_blank" rel="noopener noreferrer" class="hover:text-teal transition-colors duration-300" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 5.07h-2.44v8.26h2.44V8.07zM8.27 6.8a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8zm5.23 1.27h-2.44v1.2h.03c.35-.6 1.2-1.23 2.4-1.23 2.58 0 3.05 1.7 3.05 3.9V16.33h-2.44v-4.57c0-1.09-.02-2.48-1.51-2.48-1.51 0-1.74 1.18-1.74 2.4v4.65z"/></svg>
+                        <a href="https://github.com/ccaannozturk" target="_blank" rel="noopener noreferrer" class="hover:text-teal transition-colors duration-300" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         </a>
-                        <a href="https://www.google.com/maps/place/Utrecht" target="_blank" rel="noopener noreferrer" class="hover:text-teal transition-colors duration-300" aria-label="Location">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <a href="https://www.linkedin.com/in/canztrk/" target="_blank" rel="noopener noreferrer" class="hover:text-teal transition-colors duration-300" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 5.07h-2.44v8.26h2.44V8.07zM8.27 6.8a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8zm5.23 1.27h-2.44v1.2h.03c.35-.6 1.2-1.23 2.4-1.23 2.58 0 3.05 1.7 3.05 3.9V16.33h-2.44v-4.57c0-1.09-.02-2.48-1.51-2.48-1.51 0-1.74 1.18-1.74 2.4v4.65z"/></svg>
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <img src="https://placehold.co/400x400/2CA58D/F8F9FA?text=NM" alt="Nil Mumcu" class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-teal shadow-xl">
+                    <img src="https://placehold.co/400x400/2CA58D/F8F9FA?text=CO" alt="Can Öztürk" class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-teal shadow-xl">
                 </div>
             </div>
         </section>
 
-
-        <!-- Experience Section -->
         <section id="experience" class="py-20 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Work Experience</h2>
                 <div class="relative max-w-2xl mx-auto">
                     <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
                     <div class="space-y-12">
-                        <!-- Experience Item 1 -->
+                        
                         <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-1">
                             <div class="md:flex items-center">
                                 <div class="md:w-1/2 md:pr-8">
                                     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Aug 2022 - Present</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Quality & Validation Engineer</h3>
-                                        <p class="text-dark-grey">Commencis</p>
-                                        <p class="text-sm mt-2">Developed Python validation pipelines and built an end-to-end data-validation pipeline, reducing manual checks by ~30%.</p>
+                                        <p class="text-teal font-semibold">Dec 2024 - Present</p>
+                                        <h3 class="text-xl font-bold font-montserrat mt-2">Financial Controller</h3>
+                                        <p class="text-dark-grey">Adyen</p>
+                                        <p class="text-sm mt-2">Serve as the key Financial Controller for the Banking Platform, taking ownership of accounting, reporting, and financial control...</p>
                                         <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
                                     </div>
                                 </div>
                                 <div class="md:w-1/2 md:pl-8"></div>
                             </div>
                         </div>
-                        <!-- Experience Item 2 -->
+
                         <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-2">
                             <div class="md:flex items-center flex-row-reverse">
                                 <div class="md:w-1/2 md:pl-8">
                                     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Aug 2021 - Oct 2021</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Data Analyst Intern</h3>
-                                        <p class="text-dark-grey">Logo Business Solutions</p>
-                                        <p class="text-sm mt-2">Wrote and optimized SQL queries for 50K+ monthly transaction records and created Streamlit dashboards for KPIs.</p>
-                                         <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
+                                        <p class="text-teal font-semibold">Nov 2020 - Dec 2024</p>
+                                        <h3 class="text-xl font-bold font-montserrat mt-2">Group Reporting Analyst</h3>
+                                        <p class="text-dark-grey">Vivo Energy</p>
+                                        <p class="text-sm mt-2">Performed financial analysis to support the consolidation of data from over 20 countries.</p>
+                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
                                     </div>
                                 </div>
                                 <div class="md:w-1/2 md:pr-8"></div>
                             </div>
                         </div>
-                         <!-- Experience Item 3 -->
+
                         <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-3">
                             <div class="md:flex items-center">
                                 <div class="md:w-1/2 md:pr-8">
                                     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                                        <p class="text-teal font-semibold">Jun 2020 - Jul 2020</p>
-                                        <h3 class="text-xl font-bold font-montserrat mt-2">Digital Analytics Intern</h3>
-                                        <p class="text-dark-grey">Jotform</p>
-                                        <p class="text-sm mt-2">Analyzed web-traffic metrics and built dashboards in Google Data Studio, boosting ROI by ~15%.</p>
-                                         <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
+                                        <p class="text-teal font-semibold">Sep 2018 - Nov 2020</p>
+                                        <h3 class="text-xl font-bold font-montserrat mt-2">Audit Supervisor & Senior Auditor</h3>
+                                        <p class="text-dark-grey">KPMG Netherlands</p>
+                                        <p class="text-sm mt-2">Supervised a team of auditors and oversaw their work to ensure quality and timely completion of financial audits.</p>
+                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
                                     </div>
                                 </div>
                                 <div class="md:w-1/2 md:pl-8"></div>
                             </div>
                         </div>
+
+                        <div class="relative experience-item cursor-pointer" data-modal-target="exp-modal-4">
+                            <div class="md:flex items-center flex-row-reverse">
+                                <div class="md:w-1/2 md:pl-8">
+                                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                        <p class="text-teal font-semibold">Oct 2015 - Aug 2018</p>
+                                        <h3 class="text-xl font-bold font-montserrat mt-2">Senior External Auditor & Audit Assistant</h3>
+                                        <p class="text-dark-grey">EY</p>
+                                        <p class="text-sm mt-2">Led external audits process of four biggest companies in Turkey in manufacturing, sports and consumer products sectors.</p>
+                                        <p class="text-teal font-semibold mt-2 text-sm">Click to see more</p>
+                                    </div>
+                                </div>
+                                <div class="md:w-1/2 md:pr-8"></div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Skills Section -->
         <section id="skills" class="py-20 bg-white fade-in-section">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Technical Skills</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Technical & Core Skills</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Skill Category -->
+                    
                     <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Programming</h3>
+                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Finance & Data</h3>
                         <div class="space-y-4">
-                            <p>Python, R, Java, SQL, JavaScript, React.js, Swift</p>
+                            <p>Advanced Excel & Financial Modeling</p>
+                            <p>Complex Data Analytics & Deep Dive Insights</p>
+                            <p>IFRS, TR GAAP & Compliance</p>
+                            <p>Financial Reporting & Consolidation</p>
                         </div>
                     </div>
-                    <!-- Skill Category -->
+                    
                     <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Data Science</h3>
+                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Tech & Automation</h3>
                         <div class="space-y-4">
-                           <p>Data Ethics & Responsible AI, Data Visualization & Reporting, Pandas, Matplotlib</p>
+                            <p><strong>AI Integration:</strong> Highly proficient in collaborating with AI tools to boost efficiency.</p>
+                            <p><strong>Agent Creation:</strong> Building custom AI Agents (like Gemini Gems) to segment workloads and optimize output quality.</p>
+                            <p><strong>Vibecoding:</strong> Fast, adaptive basic development & prototyping.</p>
+                            <p><strong>Process Automation:</strong> Transforming manual workflows into automated, high-quality pipelines.</p>
                         </div>
                     </div>
-                    <!-- Skill Category -->
+                    
                     <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Testing & Automation</h3>
+                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Systems</h3>
                         <div class="space-y-4">
-                            <p>Selenium, Espresso, API testing (Postman), Charles Proxy, TestRail, CI/CD pipelines</p>
+                            <p>Rapid technological adaptation to any software or app.</p>
+                            <p>HFM (Hyperion Financial Management)</p>
+                            <p>SAP & SGR</p>
+                            <p>VBA Programming</p>
                         </div>
                     </div>
-                     <!-- Skill Category -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Tools & Databases</h3>
-                        <div class="space-y-4">
-                            <p><strong>Tools:</strong> Git/GitHub, Jira, Android Studio, VSCode, Xcode</p>
-                            <p><strong>Databases:</strong> MySQL, Oracle SQL, Firebase</p>
-                        </div>
-                    </div>
-                    <!-- Skill Category -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Cloud</h3>
-                        <div class="space-y-4">
-                            <p>Google Cloud Platform (GCP), Amazon Web Services (AWS)</p>
-                        </div>
-                    </div>
-                    <!-- Skill Category -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-4 font-montserrat text-teal">Languages</h3>
-                        <div class="space-y-4">
-                            <div><p>Turkish (Native)</p><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-teal h-2.5 rounded-full" style="width: 100%"></div></div></div>
-                            <div><p>English (Advanced - C1)</p><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-teal h-2.5 rounded-full" style="width: 85%"></div></div></div>
-                            <div><p>French (Intermediate - B1)</p><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-teal h-2.5 rounded-full" style="width: 50%"></div></div></div>
-                            <div><p>Dutch (Beginner - A1)</p><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-teal h-2.5 rounded-full" style="width: 20%"></div></div></div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
 
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 fade-in-section">
+        <section id="education" class="py-20 fade-in-section">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer project-card" data-modal-target="proj-modal-1">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 font-montserrat">Master's Thesis: Root Cause Analysis</h3>
-                            <p class="text-dark-grey text-sm mb-4">Investigating root cause analysis in cloud infrastructure.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-teal text-white px-2 py-1 text-xs rounded-full">Cloud</span>
-                                <span class="bg-teal text-white px-2 py-1 text-xs rounded-full">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer project-card" data-modal-target="proj-modal-2">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 font-montserrat">Student Performance Prediction</h3>
-                            <p class="text-dark-grey text-sm mb-4">A project focused on the ethical implications of predictive modeling in education.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-teal text-white px-2 py-1 text-xs rounded-full">Data Ethics</span>
-                                <span class="bg-teal text-white px-2 py-1 text-xs rounded-full">Responsible AI</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer project-card" data-modal-target="proj-modal-3">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 font-montserrat">Accessible Recommender System</h3>
-                            <p class="text-dark-grey text-sm mb-4">Developing a recommender system for public media with accessibility as a core feature.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-teal text-white px-2 py-1 text-xs rounded-full">Python</span>
-                                <span class="bg-teal text-white px-2 py-1 text-xs rounded-full">Accessibility</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Education & Certifications Section -->
-        <section id="education" class="py-20 bg-white fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Education & Certifications</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Education Column -->
+                <h2 class="text-4xl font-bold text-center mb-12 font-montserrat">Education</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center md:text-left">
                     <div>
-                        <h3 class="text-2xl font-bold mb-6 font-montserrat text-teal">Education</h3>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xl font-bold">MSc in Applied Data Science</h4>
-                                <p class="text-dark-grey">Utrecht University</p>
-                                <p class="text-sm text-gray-500">Expected: 2025</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold">BSc in Information Systems and Technologies</h4>
-                                <p class="text-dark-grey">Bilkent University</p>
-                                <p class="text-sm text-gray-500">2022</p>
-                            </div>
-                        </div>
+                        <h4 class="text-xl font-bold">Bachelor's degree, Economics</h4>
+                        <p class="text-dark-grey font-semibold mt-1">Istanbul University</p>
+                        <p class="text-sm text-gray-500 mt-1">2010 - 2014</p>
                     </div>
-                    <!-- Certifications Column -->
                     <div>
-                        <h3 class="text-2xl font-bold mb-6 font-montserrat text-teal">Certifications</h3>
-                        <div class="space-y-4">
-                            <p class="font-semibold">IELTS, British Council - Score: 7.5</p>
-                            <p class="font-semibold">ISTQB Foundation Level - Certified</p>
-                            <p class="font-semibold">Data Engineering & Visualization (Coursera)</p>
-                            <p class="font-semibold">Accessibility Rules & Best Practices (Udemy)</p>
-                            <p class="font-semibold">Security Testing Fundamentals (Udemy)</p>
-                        </div>
+                        <h4 class="text-xl font-bold">Economics (Erasmus)</h4>
+                        <p class="text-dark-grey font-semibold mt-1">VSB - Technical University of Ostrava</p>
+                        <p class="text-sm text-gray-500 mt-1">Feb 2013 - Jul 2013</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">High School</h4>
+                        <p class="text-dark-grey font-semibold mt-1">Ümraniye Anadolu Lisesi</p>
+                        <p class="text-sm text-gray-500 mt-1">2006 - 2010</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-
-    <!-- Footer -->
     <footer class="bg-navy text-light-grey text-center p-6">
-        <p>&copy; 2025 Nil Mumcu. Designed with passion.</p>
+        <p>© 2026 Can Öztürk. Designed with passion.</p>
     </footer>
 
-
-    <!-- Modals -->
     <div id="modal-container">
-        <!-- Experience Modals -->
         <div id="exp-modal-1" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Quality & Validation Engineer <span class="text-dark-grey text-lg">@ Commencis</span></h3>
+            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
+                <h3 class="text-2xl font-bold font-montserrat mb-4">Financial Controller <span class="text-dark-grey text-lg">@ Adyen</span></h3>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Developed Python validation pipelines for Türkiye İş Bankası.</li>
-                    <li>Built an end-to-end data-validation pipeline, reducing manual checks by ~30%.</li>
-                    <li>Collaborated on data lineage documentation.</li>
-                    <li>Maintained test case logs in TestRail.</li>
-                    <li>Integrated static code analysis into CI pipelines with DevOps.</li>
+                    <li>Serve as the key Financial Controller for the Banking Platform, taking ownership of accounting, reporting, and financial control for internally-built payments and banking products.</li>
+                    <li>Partner closely with Product teams and System Developers to design and build scalable accounting flows for new product launches.</li>
+                    <li>Identify and execute opportunities to optimize and automate financial processes in collaboration with Data Engineers.</li>
+                    <li>Conduct deep dives into complex platform data to understand underlying business activities and "the story behind the numbers."</li>
+                    <li>Act as the expert within Group Finance regarding Adyen’s Financial Products.</li>
+                    <li>Perform month-end close activities and contribute to the internal control framework.</li>
                 </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>
+                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
             </div>
         </div>
+
         <div id="exp-modal-2" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Data Analyst Intern <span class="text-dark-grey text-lg">@ Logo Business Solutions</span></h3>
-                 <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Wrote and optimized SQL queries for 50K+ monthly transaction records.</li>
-                    <li>Automated data-cleaning scripts in Python.</li>
-                    <li>Created Streamlit dashboards for KPIs.</li>
+            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
+                <h3 class="text-2xl font-bold font-montserrat mb-4">Group Reporting Analyst <span class="text-dark-grey text-lg">@ Vivo Energy</span></h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Perform financial analysis to support the consolidation of data from over 20 countries.</li>
+                    <li>Prepare and manage complex accounting structures for hyperinflationary economies.</li>
+                    <li>Develop and maintain complex Excel models and macros to automate routine financial activities.</li>
+                    <li>Coordinate external audit and external consultation procedures, including IAS 19 retirement benefits.</li>
+                    <li>Collaborated with IT to implement improvements over standardized report books and HFM tool changes.</li>
                 </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>
+                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
             </div>
         </div>
+
         <div id="exp-modal-3" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Digital Analytics Intern <span class="text-dark-grey text-lg">@ Jotform</span></h3>
-                 <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Analyzed web-traffic metrics (Ahrefs, Google Analytics).</li>
-                    <li>Built dashboards in Google Data Studio, boosting ROI by ~15%.</li>
-                    <li>Categorized user-behavior metrics and documented analysis.</li>
+            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
+                <h3 class="text-2xl font-bold font-montserrat mb-4">Audit Supervisor & Senior Auditor <span class="text-dark-grey text-lg">@ KPMG Netherlands</span></h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Supervise a team of auditors and oversee their work to ensure quality and timely completion of financial audits.</li>
+                    <li>Responsible for managing and performing all aspects of the audit engagement.</li>
+                    <li>Utilized risk-based approach to audit, gain extensive understanding of business and industry environment.</li>
+                    <li>Interfaced with client personnel including Controller, Internal Audit Manager, Financial reporting Manager and CFO.</li>
                 </ul>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>
+                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
             </div>
         </div>
-        
-        <!-- Project Modals -->
-        <div id="proj-modal-1" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Master's Thesis: Root Cause Analysis in Cloud Infrastructure</h3>
-                <p class="text-gray-700">This ongoing thesis project involves a deep dive into methodologies for identifying root causes of failures and performance issues within complex cloud environments. The research aims to develop a more efficient framework for automated diagnostics.</p>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>
-            </div>
-        </div>
-        <div id="proj-modal-2" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Student Performance Prediction Project</h3>
-                <p class="text-gray-700">This project explored the ethical dimensions of using machine learning to predict student success. It involved building a predictive model while implementing fairness-aware algorithms to mitigate bias and ensure the responsible use of AI in an educational context.</p>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>
-            </div>
-        </div>
-        <div id="proj-modal-3" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
-            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95">
-                <h3 class="text-2xl font-bold font-montserrat mb-4">Accessible Recommender System</h3>
-                <p class="text-gray-700">The goal was to design and prototype a recommender system for a public media platform that prioritizes accessibility. This included considerations for users with disabilities, ensuring that the recommendations and the user interface were usable by everyone.</p>
-                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800">&times;</button>
+
+        <div id="exp-modal-4" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 opacity-0 pointer-events-none">
+            <div class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full transform scale-95 overflow-y-auto max-h-[80vh]">
+                <h3 class="text-2xl font-bold font-montserrat mb-4">Senior External Auditor & Audit Assistant <span class="text-dark-grey text-lg">@ EY</span></h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Led external audits process of four biggest companies in Turkey in manufacturing, sports and consumer products sectors.</li>
+                    <li>Prepared financial reports based on IFRS and TR GAAP and improved IFRS knowledge.</li>
+                    <li>Assisted client's IFRS 15 implementation process and gained an understanding about how IFRS 15 adoption affected companies.</li>
+                    <li>Performed both substantive and control based audit procedures to include all areas of financial statement.</li>
+                </ul>
+                <button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-xl">×</button>
             </div>
         </div>
     </div>
 
-
-
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-
-            // Modal functionality
             const modalTriggers = document.querySelectorAll('.experience-item, .project-card');
             const modals = document.querySelectorAll('.modal');
             const closeButtons = document.querySelectorAll('.modal-close-btn');
-
 
             function openModal(modalId) {
                 const modal = document.getElementById(modalId);
@@ -411,66 +318,29 @@
                 }
             }
 
-
             function closeModal(modal) {
                 if (modal) {
                     modal.querySelector('.modal-content').classList.add('scale-95');
                     modal.querySelector('.modal-content').classList.remove('scale-100');
                     modal.classList.add('opacity-0');
-                    setTimeout(() => {
-                        modal.classList.add('pointer-events-none');
-                    }, 300); // Wait for transition to finish
+                    setTimeout(() => { modal.classList.add('pointer-events-none'); }, 300);
                 }
             }
 
-
             modalTriggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    const modalId = trigger.getAttribute('data-modal-target');
-                    openModal(modalId);
-                });
+                trigger.addEventListener('click', () => { openModal(trigger.getAttribute('data-modal-target')); });
             });
 
+            closeButtons.forEach(button => { button.addEventListener('click', () => { closeModal(button.closest('.modal')); }); });
 
-            closeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    closeModal(button.closest('.modal'));
-                });
-            });
+            modals.forEach(modal => { modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); }); });
+            document.addEventListener('keydown', (e) => { if (e.key === "Escape") modals.forEach(closeModal); });
 
-
-            // Close modal on background click
-            modals.forEach(modal => {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal(modal);
-                    }
-                });
-            });
-
-
-            // Close modal with Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === "Escape") {
-                    modals.forEach(closeModal);
-                }
-            });
-
-
-            // Fade-in sections on scroll
             const sections = document.querySelectorAll('.fade-in-section');
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
             }, { threshold: 0.1 });
-
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+            sections.forEach(section => { observer.observe(section); });
         });
     </script>
 </body>
